@@ -1,12 +1,14 @@
 import mongoose from 'mongoose';
-
+import dbgr from 'debug';
+import config from "config"
+const debug = dbgr('development:mongoose');
 const connectDB = async () => {
     try {
-        await mongoose.connect('mongodb://localhost:27017/SCATCH');
+        await mongoose.connect(`${config.get("MONGODB_URL")}/SCATCH`);
 
-        console.log('Connected to MongoDB');
+       debug('Connected to MongoDB');
     } catch (error) {
-        console.log(error);
+        debug('Error connecting to MongoDB', error);
     }
 };
 

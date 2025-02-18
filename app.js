@@ -23,14 +23,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
+
 //Creating Routes
 app.use("/owner", ownerRouter);
 app.use("/user", userRouter);
 app.use("/products", productRouter);
 
-
-app.listen(3000, () => {
-    console.log("http://localhost:3000");
+const port = 3000;
+app.listen(port, () => {
+    console.log(`http://localhost:${port}`);
 });
 
 
